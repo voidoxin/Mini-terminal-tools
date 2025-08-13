@@ -39,7 +39,7 @@ double checkingNumber(string mss) //check input of numbers
  	}
    }
 }
-void task_1(){
+void task_1(){//calculator
 	double n1=0;
 	double n2=0;
 	char op;
@@ -69,7 +69,7 @@ void task_1(){
 	      	};
 	};
 };
-void task_2()
+void task_2()//temperature converter
 {
         char to;
         char from;
@@ -85,31 +85,32 @@ void task_2()
     to=checkingchar ("Finally, specify the unit you want to convert to (C, F, or K).\n");
     to=toupper(to);
     from=toupper(from);
- if((from=='K' || from=='C' ||from=='F') && (to=='K' || to=='C' || to=='F'))
+ if((from=='K' || from=='C' ||from=='F') && (to=='K' || to=='C' || to=='F'))//check the input must be one of K, C, F
  {
-  if(to!=from)
+  if(to!=from)//check " to" to is not like "from"
   {
-    if(from=='F')
+    if(from=='F')//converte to C
     {
-    	result=(value-32)*5/9;
+    	result=(value-32)*5/9;//F->C
     }else if(from=='K')
     {
-    	result=value-273.15;
-    }else if(from!='C')
-    {
-    	cout<<"how this happining it's impossible is this a bug or you're hacker?!!"<<endl;
-    }else {
-    	result=value;
+    	result=value-273.15;//K->C
+    }else{
+    	result=value;//C
     }
     if(to=='F') 
     {
-    	result=(result*9/5) +32;
+    	result=(result*9/5) +32;//C->F
     }else if(to=='K')
     {
-    	result=result+273.15;
+    	result=result+273.15;//C->K""
     }
   }else{
-  	cout<<" you want to converte from "<<from<<" to "<<to<<" are you crazy?! "<<endl;
+  }else{
+    cout << "⚠ Conversion not needed:  source and target units are the same (" 
+         << from << ")." << endl;
+    cout << "Final value: " << value << " " << from << endl;
+}
   }
  }else{
  	cout<<"invalide unit should be  C, F or K"<<endl;
@@ -117,7 +118,7 @@ void task_2()
  cout<<" the result is:::::"<<result<<to<<endl;
 };
 int main (){
-    string consol ;
+    string consol ; //commands 
     cout << R"(  
   __  __ _       _     _______                  _             _ 
  |  \/  (_)     | |   |__   __|                | |           | |
@@ -130,7 +131,7 @@ int main (){
 -----------------------------------------------------------------
 )";
   cout<<endl; 
-  while (true)
+  while (true)//terminal repet commands
   {
   	for(int i=0;i<5; i++)
   	{
