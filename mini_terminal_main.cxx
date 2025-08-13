@@ -1,15 +1,51 @@
 #include <iostream>
+#include <limits>
+#include<string>
 using namespace std;
+char checkingchar(string mss) //check input of char
+{   char value;
+	cout<<mss<<endl;
+    while (true){
+	cin>>ws>>value;
+	if(cin.fail())
+	{
+		cin.clear();
+		cout<<"invalide input, please try again"
+		        <<endl;
+		 cin.ignore (numeric_limits<streamsize>::max(),'\n') ;
+ 	}else
+ 	{
+ 	     cin.ignore (numeric_limits<streamsize>::max(),'\n') ;
+ 	    return value;
+ 	}
+   }
+}
+double checkingNumber(string mss) //check input of numbers 
+{   double value;
+	cout<<mss<<endl;
+	while (true) {
+	cin>>value;
+	if(cin.fail())
+	{
+		cin.clear();
+		cout<<"invalide input, please try again"
+		        <<endl;
+		 cin.ignore (numeric_limits<streamsize>::max(),'\n') ;
+ 	}else
+ 	{
+ 	     cin.ignore (numeric_limits<streamsize>::max(),'\n') ;
+
+ 	    return value;
+ 	}
+   }
+}
 void task_1(){
 	double n1=0;
 	double n2=0;
 	char op;
-	cout<<"enter first number"<<endl;
-	cin>>n1;
-	cout<<"enter your operators"<<endl;
-	cin>>op;
-	cout<<"enter second number"<<endl;
-	cin>>n2;
+	n1=checkingNumber("enter first number\n");
+	op=checkingchar("enter your operatore");
+	n2=checkingNumber("enter second number");
 	cout<<"result is::::::";
 	switch(op)
 	{
@@ -37,22 +73,19 @@ void task_2()
 {
         char to;
         char from;
-        float value ;
+        double value ;
         double result=0.0;
   cout << "Welcome to the Temperature Converter!\n\n"
      << "Available units:\n"
      << "\t- Celsius (C)\n"
      << "\t- Fahrenheit (F)\n"
-     << "\t- Kelvin (K)\n\n"
-     << "Please enter the temperature value you want to convert.\n";
-     cin>>value;
-     cout<< "Then specify the unit you're converting from (C, F, or K).\n";
-     cin>>from;
-    cout << "Finally, specify the unit you want to convert to (C, F, or K).\n";
-    cin>>to;
+     << "\t- Kelvin (K)\n\n";
+     value=checkingNumber( "Please enter the temperature value you want to convert.\n");
+     from=checkingchar ("Then specify the unit you're converting from (C, F, or K).\n");
+    to=checkingchar ("Finally, specify the unit you want to convert to (C, F, or K).\n");
     to=toupper(to);
     from=toupper(from);
- if(from=='K' || from=='C' ||from=='F' && to=='K' || to=='C' || to=='F')
+ if((from=='K' || from=='C' ||from=='F') && (to=='K' || to=='C' || to=='F'))
  {
   if(to!=from)
   {
@@ -104,6 +137,7 @@ int main (){
   		cout<<endl;
   	}
   cout<<"menu:::::::::::::::::: \n 1-calculator \n 2- Temperature Converter"<<endl;
+  cout<<"also you can quit the terminal by exit or quit"<<endl;
     cout<<" please enter a Command"<<endl;
   cin>>consol;
   if(consol=="1" || consol=="calculator" || consol=="Calculator")
@@ -112,6 +146,8 @@ int main (){
   }else if(consol=="2" || consol=="temperature converter" ||    consol=="Temperature Converter" ||  consol=="Temperature converter" ||  consol=="temperature Converter" ||  consol=="temperature_converter")
   {
   	task_2();
+  }else if(consol=="quit" || consol=="exit")
+  {   break;
   }
   else {
     cout<<"unkown tool"<<endl;
