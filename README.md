@@ -1,4 +1,4 @@
-# 🖥️ Mini Terminal Tools - by Fraj
+# 🖥️ Mini Terminal Tools - by Voidoxin
 
 Welcome to **Mini Terminal Tools**, a beginner-friendly **C++ console program** created for learning and practice purposes.  
 This project runs directly in the terminal and currently includes two basic tools:  
