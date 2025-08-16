@@ -5,7 +5,10 @@ This project runs directly in the terminal and currently includes two basic tool
 
 - 🧮 **Calculator** – Perform addition, subtraction, multiplication, and division.  
 - 🌡️ **Temperature Converter** – Convert between Celsius (C), Fahrenheit (F), and Kelvin (K).  
-
+- 🧠**Quiz**c  – Test your knowledge with multiple-choice questions!
+  🌟 Fun and interactive quiz for programming concepts.
+  📜 Answer by typing the number (1️⃣, 2️⃣, 3️⃣…) or the text of the answer.
+  ✅ At the end, see your score and learn while having fun! 
 ---
 
 ## 📌 Overview
