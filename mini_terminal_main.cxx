@@ -76,24 +76,30 @@ void task_1() // calculator
     n1 = checkingNumber("enter first number\n");
     op = opCheck("enter your operatore");
     n2 = checkingNumber("enter second number");
-    cout << "result is::::::";
     switch (op) {
         case '+': // when operator is +
+           cout << "result is::::::";
             cout << n1 + n2 << endl;
             break;
         case '-': // when operator is -
+           cout << "result is::::::";
             cout << n1 - n2 << endl;
             break;
         case '*': // when operator is *
+           cout << "result is::::::";
             cout << n1 * n2 << endl;
             break;
         case '/': // when operator is /
+        while(true){
             if (n2 != 0) // n2 must be not 0
-            {
+            {   cout << "result is::::::";
                 cout << n1 / n2 << endl;
+                break;
             } else {
                 cout << "⚠ Error: Division by zero is not allowed. Please enter a valid non-zero divisor." << endl;
+                n2= checkingNumber("please try again\n");
             };
+        }
     };
 }
 void task_2() // temperature converter
@@ -218,10 +224,29 @@ void task_3(){
    }
   }
 }
+void clear() {
+	#ifdef _win32
+			system("cls");
+	#else 
+			system("clear");
+	#endif
+}
+void pause() {
+	#ifdef _win32
+			system("pause");
+	#else
+			cout<<"press enter to continue"<<endl;
+			cin.ignore();
+	#endif
+}
 int main()
 {
     string consol;
-    cout << R"(  
+    cout << endl;
+    while (true) // terminal repeat
+    {			
+       	clear() ;
+            cout << R"(  
   __  __ _       _     _______                  _             _ 
  |  \/  (_)     | |   |__   __|                | |           | |
  | \  / |_ _ __ | | __   | |_ __ __ _ _ __  ___| |_ _ __ __ _| |
@@ -232,9 +257,6 @@ int main()
              Mini Terminal - by Voidoxin 
 -----------------------------------------------------------------
 )";
-    cout << endl;
-    while (true) // terminal repeat
-    {
         for (int i = 0; i < 3; i++) // under title some space
         {
             cout << endl;
@@ -245,15 +267,18 @@ int main()
         cin >> consol;
         if (consol == "1" || consol == "calculator" || consol == "Calculator") {
             task_1(); //calculator function
+            	pause();
         } else if (consol == "2" || consol == "temperature converter" || consol == "Temperature Converter" ||
                    consol == "Temperature converter" || consol == "temperature Converter" || consol == "temperature_converter") {
             task_2(); //temperature converter fonction 
+            	pause();
         } else if (consol == "quit" || consol == "exit") { // user exit
             cout << "bey ; ) " << endl;
             break;
         }else if(consol=="3" || consol=="QUIZ" || consol=="Quiz" || consol=="quiz")
         {
 	     	task_3();
+	     	pause();
         } else {
             cout<<endl;
             cout <<"--->:unkown tool" << endl;
