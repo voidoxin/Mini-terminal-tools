@@ -7,7 +7,26 @@
 #include <algorithm> 
 #include <cctype>     
 #include "data_storage.h"
+#include <thread>
+#include <chrono>
 using namespace std;
+void clear() {
+	#ifdef _win32
+			system("cls");
+	#else 
+			system("clear");
+	#endif
+}
+void pause() {
+	#ifdef _win32
+			system("pause");
+	#else
+			cout<<"press enter to continue"<<endl;
+			cin.ignore();
+	#endif
+}
+void sleep(int seconds) {   this_thread::sleep_for(chrono::seconds(seconds));
+}
 char opCheck(string mss)
 {     bool check1=false;
 	  char value;
@@ -224,21 +243,6 @@ void task_3(){
    }
   }
 }
-void clear() {
-	#ifdef _win32
-			system("cls");
-	#else 
-			system("clear");
-	#endif
-}
-void pause() {
-	#ifdef _win32
-			system("pause");
-	#else
-			cout<<"press enter to continue"<<endl;
-			cin.ignore();
-	#endif
-}
 int main()
 {
     string consol;
@@ -264,7 +268,8 @@ int main()
         cout << "menu:::::::::::::::::: \n 1-calculator \n 2- Temperature Converter \n 3-quiz" << endl;
         cout << "also you can quit the terminal by exit or quit" << endl;
         cout << " please enter a Command" << endl;
-        cin >> consol;
+        getline(cin,consol);
+       // cin >> consol;
         if (consol == "1" || consol == "calculator" || consol == "Calculator") {
             task_1(); //calculator function
             	pause();
@@ -282,6 +287,7 @@ int main()
         } else {
             cout<<endl;
             cout <<"--->:unkown tool" << endl;
+            sleep(1.20);
         }
     }
 };
